@@ -24,7 +24,7 @@ jobs:
           php-version: ${{ matrix.php }}
           coverage: none
           tools: composer:v2
-      - uses: ramsey/composer-install@v3
+      - uses: ramsey/composer-install@4.0.0
       - run: composer validate --strict
       - run: composer test
 
@@ -38,7 +38,7 @@ jobs:
           php-version: '8.3'
           coverage: none
           tools: composer:v2
-      - uses: ramsey/composer-install@v3
+      - uses: ramsey/composer-install@4.0.0
       - run: composer format:check
       - run: composer analyse
       - run: composer audit
