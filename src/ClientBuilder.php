@@ -107,7 +107,7 @@ final class ClientBuilder
 
     public function build(): Client
     {
-        $configuration = new Configuration()
+        $configuration = (new Configuration())
             ->setHost($this->baseUri)
             ->setUserAgent(Client::USER_AGENT);
 
