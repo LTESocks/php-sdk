@@ -1,0 +1,45 @@
+invokerPackage: LTESocks
+apiPackage: Resource
+modelPackage: Dto
+packageName: LTESocks
+composerPackageName: ltesocks/php-sdk
+artifactVersion: 1.0.0
+artifactUrl: https://github.com/LTESocks/php-sdk
+developerOrganization: LTESocks
+developerOrganizationUrl: https://ltesocks.io
+licenseName: MIT
+srcBasePath: src
+variableNamingConvention: camelCase
+hideGenerationTimestamp: true
+enumUnknownDefaultCase: true
+disallowAdditionalPropertiesIfNotPresent: false
+library: guzzle
+operationIdNameMappings:
+  getUser: get
+  updateUserPreferences: updatePreferences
+  listPorts: list
+  filterPorts: filter
+  getPort: get
+  deletePort: delete
+  deletePortWithPost: deleteCompat
+  getPortLog: getLog
+  filterPortLog: filterLog
+  getPortVpn: downloadVpn
+  downloadPortVpnWithPost: downloadVpnCompat
+  orderPorts: order
+  extendPort: extend
+  changePortPlan: changePlan
+  updatePortTags: updateTags
+  updatePortAutorenew: setAutoRenew
+  updatePortSignature: updateSignature
+  updatePortCredentials: updateCredentials
+  updatePortAutoreset: setAutoResetInterval
+  resetPort: reset
+  resolveResetToken: resolveResetToken
+  listPayments: list
+  filterPayments: filter
+  listPaymentCurrencies: listCurrencies
+  requestPayment: request
+  listPlans: listPlans
+  listServers: listServers
+  listSignatures: listSignatures

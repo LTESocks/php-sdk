@@ -1,0 +1,29 @@
+name: Release check
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          coverage: none
+          tools: composer:v2
+      - uses: ramsey/composer-install@v3
+      - name: Verify tag and client version
+        run: php -r 'require "vendor/autoload.php"; exit($argv[1] === "v" . LTESocks\Client::VERSION ? 0 : 1);' "${GITHUB_REF_NAME}"
+      - run: composer quality
+      - run: composer archive --format=zip --dir=dist
+      - uses: actions/upload-artifact@v7
+        with:
+          name: composer-package
+          path: dist/
+          if-no-files-found: error
