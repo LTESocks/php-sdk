@@ -17,6 +17,7 @@ final class OpenApiCoverageTest extends TestCase
         'Ports' => \LTESocks\Resource\PortsResource::class,
         'Payments' => \LTESocks\Resource\PaymentsResource::class,
         'General' => \LTESocks\Resource\GeneralResource::class,
+        'ResidentialSubusers' => \LTESocks\Resource\ResidentialSubusersResource::class,
     ];
 
     public function testEveryOperationHasAResourceAndResponseMethod(): void
@@ -44,8 +45,8 @@ final class OpenApiCoverageTest extends TestCase
             }
         }
 
-        self::assertSame(28, $covered);
-        self::assertCount(28, $mappings);
+        self::assertSame(36, $covered);
+        self::assertCount(36, $mappings);
     }
 
     public function testVendoredSchemaMatchesItsManifest(): void
@@ -54,7 +55,7 @@ final class OpenApiCoverageTest extends TestCase
         $manifest = json_decode((string) file_get_contents($root . '/openapi/source.json'), true, 512, JSON_THROW_ON_ERROR);
 
         self::assertSame($manifest['sha256'], hash_file('sha256', $root . '/openapi/openapi.yaml'));
-        self::assertSame(28, $manifest['operations']);
-        self::assertSame(13, $manifest['schemas']);
+        self::assertSame(36, $manifest['operations']);
+        self::assertSame(20, $manifest['schemas']);
     }
 }

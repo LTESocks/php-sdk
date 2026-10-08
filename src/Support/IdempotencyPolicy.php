@@ -20,6 +20,9 @@ final class IdempotencyPolicy
         ['POST', '#^/ports/[^/]+/credentials$#D'],
         ['POST', '#^/ports/[^/]+/autoreset$#D'],
         ['POST', '#^/ports/[^/]+/reset$#D'],
+        ['POST', '#^/proxies/residential/subusers$#D'],
+        ['DELETE', '#^/proxies/residential/subusers/[^/]+$#D'],
+        ['POST', '#^/proxies/residential/subusers/[^/]+/traffic/[^/]+$#D'],
     ];
 
     public static function supports(RequestInterface $request, string $basePath): bool

@@ -42,7 +42,7 @@ foreach ($paths as $pathItem) {
 }
 
 $schemas = $document['components']['schemas'] ?? [];
-if (28 !== $operations || !\is_array($schemas) || 13 !== \count($schemas)) {
+if (36 !== $operations || !\is_array($schemas) || 20 !== \count($schemas)) {
     fwrite(STDERR, \sprintf(
         "Unexpected contract size: %d operations and %d schemas.\n",
         $operations,

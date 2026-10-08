@@ -5,7 +5,7 @@
 [![PHPStan](https://img.shields.io/badge/PHPStan-max-4F5B93)](phpstan.neon.dist)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-The official PHP client for the [LTESocks Public API v2](https://docs.ltesocks.io/). It provides generated DTOs and resource methods for account preferences, mobile proxy ports, payments, plans, servers, and network signatures.
+The official PHP client for the [LTESocks Public API v2](https://docs.ltesocks.io/). It provides generated DTOs and resource methods for account preferences, mobile proxy ports, residential sub-users, payments, plans, servers, and network signatures.
 
 > Package publication has not started yet. The repository is ready, but `ltesocks/php-sdk` is intentionally not available on Packagist until the first release is approved.
 
@@ -63,8 +63,18 @@ $client = Client::builder()
 | `$client->ports()` | List, filter, order, update, reset, delete, and download VPN archives |
 | `$client->payments()` | List/filter history and access reserved payment operations |
 | `$client->general()` | List plans, servers, and signatures |
+| `$client->residentialSubusers()` | Manage users, package traffic, and proxy credentials under a reseller account |
 
 Every operation includes a `methodWithResponse()` variant that returns status, headers, ETag, and idempotency replay metadata. Generated method and DTO details are in [`docs/Api`](docs/Api) and [`docs/Model`](docs/Model).
+
+Residential sub-user mutations require a stable key supplied by your application:
+
+```php
+$created = $client->residentialSubusers()->create(
+    $operationId,
+    new \LTESocks\Dto\CreateResidentialSubuser(['login' => 'customer_01', 'trafficBytes' => 1073741824]),
+);
+```
 
 ## Typed request DTOs
 

@@ -10,6 +10,7 @@ use GuzzleHttp\Psr7\Request;
 use LTESocks\Resource\GeneralResource;
 use LTESocks\Resource\PaymentsResource;
 use LTESocks\Resource\PortsResource;
+use LTESocks\Resource\ResidentialSubusersResource;
 use LTESocks\Resource\UserResource;
 use LTESocks\Support\FileDownload;
 use LTESocks\Support\Paginator;
@@ -64,6 +65,11 @@ final class Client
     public function general(): GeneralResource
     {
         return $this->resource(GeneralResource::class);
+    }
+
+    public function residentialSubusers(): ResidentialSubusersResource
+    {
+        return $this->resource(ResidentialSubusersResource::class);
     }
 
     /**

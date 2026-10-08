@@ -43,3 +43,11 @@ operationIdNameMappings:
   listPlans: listPlans
   listServers: listServers
   listSignatures: listSignatures
+  listResidentialSubusers: list
+  createResidentialSubuser: create
+  getResidentialSubuser: get
+  updateResidentialSubuser: update
+  deleteResidentialSubuser: delete
+  getResidentialSubuserPackage: getPackage
+  getResidentialSubuserCredentials: getCredentials
+  changeResidentialSubuserTraffic: changeTraffic
